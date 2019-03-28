@@ -85,10 +85,23 @@ public class SpellCheckerController {
     	
     	listaParoleErrate=model.spellCheckText(listaTesto);
     	
-    	for(RichWord r: listaParoleErrate) {
-    		String parola=r.getParola();
-    		txtAreaErrori.appendText(parola+"\n");		//nell'append non posso mettere direttamente r.getParola()
+    	int num=0;
+    	if(listaParoleErrate==null) {
+        	txtAreaErrori.setText("Non ci sono errori");
+        	
+    	}else {
+    		for(RichWord r: listaParoleErrate) {
+    			String parola=r.getParola();
+    			txtAreaErrori.appendText(parola+"\n");		//nell'append non posso mettere direttamente r.getParola()
+    			num=num+1;
+    		}
     	}
+    	
+    	txtError.setText("The text conteins "+num+" errors");
+    	
+    	long tempoDiProcesso=System.nanoTime();
+    	String tempo=String.valueOf(tempoDiProcesso);
+    	txtTempo.setText("Spell check completed in "+tempo+"seconds");
     	
     	listaParoleErrate.clear();
    	}
