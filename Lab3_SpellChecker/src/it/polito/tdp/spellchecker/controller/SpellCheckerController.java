@@ -73,8 +73,8 @@ public class SpellCheckerController {
     	model.loaddictionary(lingua);
     	
     	String testoInserito= txtAreaTesto.getText().toLowerCase();
-    	testoInserito.replaceAll("[.,\\/#!$%\\^&\\*;:{}=\\-_'~()\\[\\]\"]", "");
-    	    	
+    	testoInserito=testoInserito.replaceAll("[.,?=\\/#!$%\\^&\\*;:{}=\\-_'~()\\[\\]]", "");		//restituisce una stringa
+    	        	
     	String parole[]=testoInserito.split(" ");
     	
     	for(String p: parole) {		//il for each si può fare anche con un array

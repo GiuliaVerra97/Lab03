@@ -73,7 +73,7 @@ public class Dictionary {
 	/**
 	 * esegue il controllo ortografico sul testo di input (rappresentato da una lista di parole)
 	 * @param inputTextList indica il testo inserito nella txtArea e da correggere
-	 * @return lista di {@link RichWord} errate corrette
+	 * @return lista di {@link RichWord} errate 
 	 */
 	
 	public List<RichWord> spellCheckText(List<String> inputTextList){
@@ -101,7 +101,76 @@ public class Dictionary {
 	
 	
 	
+	/*
+	public List<RichWord> spellCheckTextLinear(List<String> inputTextList){
+		
+		listaParoleErrate.clear();
+		boolean presente=false;
+		
+		if(!inputTextList.isEmpty()) {
+			for(String parola: inputTextList) {
+				presente=false;
+				for(int i=0; i<listaDizionario.size();i++) {
+					if(parola.equals(listaDizionario.get(i))) {
+						presente=true;
+						break;
+						}
+					}
+				if(presente==false) {
+					RichWord parolaErrata=new RichWord(parola);
+					listaParoleErrate.add(parolaErrata);
+				}
+			}
+		}
+		
+		return listaParoleErrate;
+		
+	}
 	
+	
+	
+	public List<RichWord> spellCheckTextDichotomic(List<String> inputTextList){
+		
+		listaParoleErrate.clear();
+		boolean presente=false;
+		
+		if(!inputTextList.isEmpty()) {
+			for(String parola: inputTextList) {
+				presente=false;
+				int dim=listaDizionario.size();
+				String parolaMeta=listaDizionario.get((int)dim/2);
+				if(parola.compareTo(parolaMeta)<0) {
+					for(int i=0;i<dim/2;i++) {
+						if(listaDizionario.get(i).equals(parola)) {
+							presente=true;
+							break;
+						}
+					}
+				}else if(parola.compareTo(parolaMeta)==0) {
+					presente=true;
+					break;
+				}else {
+					for(int i=dim/2;i<listaDizionario.size();i++) {
+						if(listaDizionario.get(i).equals(parola)) {
+							presente=true;
+							break;
+						}
+				}
+			}
+				
+			if(presente==false) {
+				RichWord parolaErrata=new RichWord(parola);
+				listaParoleErrate.add(parolaErrata);
+				}
+			}
+				
+		}
+		
+		return listaParoleErrate;
+		
+	}
+	
+	*/
 	
 	
 }
